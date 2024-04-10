@@ -66,7 +66,7 @@ class EnvCore(object):
         # When self.agent_num is set to 2 agents, the input of actions is a 2-dimensional list, each list contains a shape = (self.action_dim, ) action data
         # The default parameter situation is to input a list with two elements, because the action dimension is 5, so each element shape = (5, )
         """
-        sub_agent_obs,reward,done,truncateds,info = self.env.step({agent_id: action for agent_id,action in zip(self.env.vehicles.keys(),actions)})
+        sub_agent_obs,reward,done,truncateds,info = self.env.step({agent_id: action for agent_id,action in zip(self.env.agents.keys(),actions)})
         sub_agent_obs=list(sub_agent_obs.values())
         sub_agent_reward=list(reward.values())
         sub_agent_done = list(done.values())[:-1]
