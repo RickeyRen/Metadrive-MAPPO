@@ -1,0 +1,10 @@
+absl_py==2.0.0
+gym==0.26.2
+imageio==2.33.0
+metadrive_simulator==0.4.1.2
+numpy==1.24.2
+setproctitle==1.3.3
+tensorboardX==2.6.2.2
+tensorboardX==2.6.2.2
+torch==2.1.1
+wandb==0.16.0
