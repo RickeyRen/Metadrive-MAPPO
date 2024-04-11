@@ -220,7 +220,7 @@ def get_config():
     )
 
     # env parameters
-    parser.add_argument("--env_name", type=str, default="MyEnv", help="specify the name of environment")
+    parser.add_argument("--env_name", type=str, default="COMP0124", help="specify the name of environment")
     parser.add_argument(
         "--use_obs_instead_of_state",
         action="store_true",
@@ -447,7 +447,7 @@ def get_config():
     parser.add_argument(
         "--use_eval",
         action="store_true",
-        default=True,
+        default=False,
         help="by default, do not start evaluation. If set`, start evaluation alongside with training.",
     )
     parser.add_argument(
@@ -524,8 +524,8 @@ def get_config():
         parkinglot=MultiAgentParkingLotEnv,
         pgma=MultiAgentMetaDrive
     )
-    parser.add_argument("--env", type=str, default="intersection", choices=list(envs.keys()))
-    parser.add_argument("--top_down", default=False,action="store_true")
+    parser.add_argument("--env", type=str, default="roundabout", choices=list(envs.keys()))
+    parser.add_argument("--top_down", default=True,action="store_true")
     parser.add_argument("--num_agents", type=int,default=3)
     parser.add_argument(
         "--random_traffic",
@@ -542,7 +542,7 @@ def get_config():
     parser.add_argument("--traffic_density", type=dict,default=density)
     parser.add_argument("--obs_num_others", type=int, default=4, help="the number of agent's observation")
     parser.add_argument("--show_navi", type=bool, default=True, help="whether show navi mark")
-
+    parser.add_argument("--show_dest", type=bool, default=True, help="whether show navi mark")
     return parser
 
 
@@ -640,7 +640,7 @@ if __name__=="__main__":
 
     # Environment selection
     env = ""  # Name of the environment
-    top_down = False  # Use top-down view (True) or not (False)
+    top_down = True  # Use top-down view (True) or not (False)
     num_agent = 2  # Number of agents
 
     #        num_updates = self.ppo_epoch * self.num_mini_batch
