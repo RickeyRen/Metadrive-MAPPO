@@ -131,7 +131,7 @@ def main(args):
         random_traffic=all_args.human_vehicle,
         traffic_density=all_args.traffic_density[all_args.env] if all_args.human_vehicle else 0,
 
-        # agent_policy=ManualControllableIDMPolicy,
+        #agent_policy=ManualControllableIDMPolicy,
         num_agents=num_agents,
         vehicle_config=dict(
             show_navi_mark=all_args.show_navi,

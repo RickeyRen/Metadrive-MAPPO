@@ -209,7 +209,7 @@ def get_config():
     parser.add_argument(
         "--num_env_steps",
         type=int,
-        default=20e6,
+        default=5e6,
         help="Number of environment steps to train (default: 10e6)",
     )
     parser.add_argument(
@@ -229,7 +229,7 @@ def get_config():
     )
 
     # replay buffer parameters
-    parser.add_argument("--episode_length", type=int, default=500, help="Max length for any episode")
+    parser.add_argument("--episode_length", type=int, default=5000, help="Max length for any episode")
 
     # network parameters
     parser.add_argument(
@@ -439,7 +439,7 @@ def get_config():
     parser.add_argument(
         "--log_interval",
         type=int,
-        default=5,
+        default=1,
         help="time duration between contiunous twice log printing.",
     )
 
@@ -467,13 +467,13 @@ def get_config():
     parser.add_argument(
         "--save_gifs",
         action="store_true",
-        default=False,
+        default=True,
         help="by default, do not save render video. If set, save video.",
     )
     parser.add_argument(
         "--use_render",
         action="store_true",
-        default=False,
+        default=True,
         help="by default, do not render the env during training. If set, start render. Note: something, the environment has internal render process which is not controlled by this hyperparam.",
     )
 
@@ -511,7 +511,7 @@ def get_config():
         roundabout=0.05,
         intersection=0.05,
         tollgate=0.05,
-        bottleneck=0.05,
+        bottleneck=0,
         parkinglot=0.05,
         pgma=0.05,
         straight=0.05
@@ -524,19 +524,19 @@ def get_config():
         parkinglot=MultiAgentParkingLotEnv,
         pgma=MultiAgentMetaDrive
     )
-    parser.add_argument("--env", type=str, default="roundabout", choices=list(envs.keys()))
+    parser.add_argument("--env", type=str, default="bottleneck", choices=list(envs.keys()))
     parser.add_argument("--top_down", default=True,action="store_true")
-    parser.add_argument("--num_agents", type=int,default=3)
+    parser.add_argument("--num_agents", type=int,default=20)
     parser.add_argument(
         "--random_traffic",
         type=bool,
-        default=True,
+        default=False,
         help="by default True, other human vehicle randomly on road.",
     )
     parser.add_argument(
         "--human_vehicle",
         type=bool,
-        default=True,
+        default=False,
         help="by default True, other human vehicle on road.",
     )
     parser.add_argument("--traffic_density", type=dict,default=density)
